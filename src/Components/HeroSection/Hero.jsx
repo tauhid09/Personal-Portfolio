@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import HeroProfile from './me.png';
 import TiltedCard from './TiltedCard';
+import ScrollBaseAnimation from './ScrollBaseAnimation';
 import '../../App.css';
 
 function Hero() {
@@ -9,7 +10,7 @@ function Hero() {
 
     return (
         <>
-            <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 bg bg-hero max-[769px]:bg-cover relative overflow-hidden" >
+            <section className="w-full min-h-screen flex flex-col items-center justify-center pt-4 bg bg-hero max-[769px]:bg-cover relative overflow-hidden" >
 
                 <div
                     className={`absolute inset-0 transition-all duration-500 pointer-events-none ${isHovered ? 'backdrop-blur-2xl z-15 transition-all' : 'backdrop-blur-none -z-10 transition-all'}`}
@@ -73,14 +74,31 @@ function Hero() {
                     style={{ backgroundImage: `url(${HeroProfile})` }}
                 />
 
-                <div className={`relative div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 ${isHovered ? 'z-0' : 'z-10'}`}>
+                {/*Mobile Version*/}
+                <div className='min-[769px]:hidden h-[600px] w-full grid place-content-end text-white mb-6'>
+                    <ScrollBaseAnimation
+                        // delay={1500}
+                        baseVelocity={-1}
+                        scrollDependent={false}
+                        className='tracking-[-0.07em] leading-[90%]'
+                    >
+                        <h1 className='text-8xl'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
+                    </ScrollBaseAnimation>
+                </div>
+                <div className='min-[769px]:hidden border border-solid border-white w-full h-[300px]'>
+
+                </div>
+
+
+                {/*Destop Version*/}
+                <div className={`max-[769px]:hidden relative div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 ${isHovered ? 'z-0' : 'z-10'}`}>
                     <h1 className="text-4xl h1-hero relative select-none text-outline md:text-7xl lg:text-8xl text-left font-bold flex flex-col font-fira text-hero" >
                         <span className='text-hero' >I'm MOHD</span>
                         <span className="ml-4 md:ml-30 text-[10rem] max-[769px]:text-5xl text-hero">TAUHEED</span>
                         <span className="ml-12 md:ml-130 text-hero" >ANSARI</span>
                     </h1>
                 </div>
-                <div className='absolute div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 hover:z-0'>
+                <div className='max-[769px]:hidden absolute div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 hover:z-0'>
                     <h1 className="text-4xl h1-hero relative select-none text-white md:text-7xl lg:text-8xl text-left font-bold flex flex-col font-fira text-hero" >
                         <span className='text-hero' >I'm MOHD</span>
                         <span className="ml-4 md:ml-30 text-[10rem] max-[769px]:text-5xl text-hero">TAUHEED</span>
@@ -88,9 +106,9 @@ function Hero() {
                     </h1>
                 </div>
 
-                <div className="absolute bottom-5 left-0 w-full flex justify-center items-center z-50">
+                <div className="absolute max-[769px]:hidden bottom-5 left-0 w-full flex justify-center items-center z-50">
                     <a href="#about" className='cursor-pointer'>
-                        <svg className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer upDown max-[769px]:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer upDown " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7" />
                         </svg>
                     </a>

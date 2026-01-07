@@ -47,9 +47,9 @@
   }
 }
 
-.responsiveLoader{
- /* @apply max-[769px]: */
-}
+/* .responsiveLoader{
+ @apply max-[769px]:
+} */
 .circle {
   @apply w-2 h-2 rounded-[50%] border border-solid border-white relative bg-white;
 }

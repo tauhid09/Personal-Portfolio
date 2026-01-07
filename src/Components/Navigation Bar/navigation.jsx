@@ -7,8 +7,8 @@ function Nav() {
         <>
             <div className="fixed top-0 z-50 w-full h-20 flex items-center justify-between px-6 backdrop-blur-2xl bg-black/5">
                 <div className="flex items-center justify-center">
-                    <h1 className='text-2xl text-white font-bold tracking-wider font-Asimovian' >
-                        <a href="#">iamtauheed</a>
+                    <h1 className='max-[769px]:text-[15px] text-[20px] text-thin text-white tracking-[-0.05rem] ' >
+                        <a href="#">© Code by Tauheed</a>
                     </h1>
                 </div>
 
@@ -24,14 +24,8 @@ function Nav() {
 
                 {/* Mobile Menu Button */}
                 <div className="hidden max-[769px]:flex items-center">
-                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            {isMenuOpen ? (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                            ) : (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            )}
-                        </svg>
+                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white max-[769px]:text-[15px]">
+                        ● Menu
                     </button>
                 </div>
             </div>
