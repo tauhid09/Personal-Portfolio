@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dynalight&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-fira: "Fira Sans Condensed", sans-serif;
+  --font-playWrite: "Playwrite NO", cursive;
+  --font-Asimovian: "Asimovian", sans-serif;
+  --font-Dynalight: "Dynalight", cursive;
+}
+
+.nav-li {
+  @apply w-full h-full flex justify-center items-center;
+}
+
+.nav:hover {
+  @apply bg-amber-50/15 cursor-pointer transition-all w-full h-full flex justify-center items-center;
+}
+
+.divHidden {
+  @apply max-[769px]:hidden
+}
+
+.bg-hero {
+  @apply max-[769px]:bg-center max-[769px]:bg-[url('./Components/HeroSection/me-1.png')];
+}
+
+.text-hero {
+  @apply max-[769px]:ml-0 transition-all;
+}
+
+
+.div-hero {
+  @apply max-[769px]:absolute max-[769px]:top-100 max-[769px]:w-auto max-[769px]:h-auto max-[769px]:left-0;
+}
+
+.h1-hero {
+  @apply max-[769px]:text-[50px]
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+}
+
+.responsiveLoader{
+ /* @apply max-[769px]: */
+}
+.circle {
+  @apply w-2 h-2 rounded-[50%] border border-solid border-white relative bg-white;
+}
+
+.moveUp {
+  animation: UpCirlce 2s ease-in-out infinite alternate;
+}
+
+@keyframes UpCirlce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-120px);
+  }
+}
+
+.moveDown {
+  animation: DownCircle 2s ease-in-out infinite alternate;
+}
+
+@keyframes DownCircle {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(120px);
+  }
+
+}
+
+.upDown {
+  animation: moveUpDown 2s ease-in-out infinite alternate;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.bg {
+  /* background-image: url('./assets/bg.png'); */
+  background-color: rgb(41, 0, 0);
+  background-position: center;
+  background-size:cover;
+}
+
+.loading-font{
+
+}
