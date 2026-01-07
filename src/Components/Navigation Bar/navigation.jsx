@@ -13,7 +13,7 @@ function Nav() {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex w-130 h-full items-center justify-center">
+                <div className="max-[769px]:hidden w-130 h-full items-center justify-center">
                     <ul className='w-full h-full flex justify-around text-white font-light' >
                         <a href="#home" className='nav-li nav'><li>HOME</li></a>
                         <a href="#about" className='nav-li nav'><li>ABOUT</li></a>
@@ -23,7 +23,7 @@ function Nav() {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center">
+                <div className="hidden max-[769px]:flex items-center">
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             {isMenuOpen ? (
@@ -38,7 +38,7 @@ function Nav() {
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
-                <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-3xl flex flex-col items-center justify-center overflow-hidden md:hidden">
+                <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-3xl hidden max-[769px]:flex flex-col items-center justify-center overflow-hidden">
                     <ul className='flex flex-col items-center space-y-8 text-white text-2xl font-light'>
                         <li className='hover:text-amber-500 transition-colors'><a href="#home" onClick={() => setIsMenuOpen(false)}>HOME</a></li>
                         <li className='hover:text-amber-500 transition-colors'><a href="#about" onClick={() => setIsMenuOpen(false)}>ABOUT</a></li>
