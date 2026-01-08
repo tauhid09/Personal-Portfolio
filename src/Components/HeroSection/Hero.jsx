@@ -86,7 +86,7 @@ function Hero() {
                             scrollDependent={false}
                             className='tracking-[-0.07em] leading-[90%]'
                         >
-                            <h1 className='h-[150px] pt-3 text-9xl font-bold font-Josefin'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
+                            <h1 className='h-[150px] pt-3 text-9xl font-bold font-fira'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
                         </ScrollBaseAnimation>
                     </div>
 
@@ -97,7 +97,7 @@ function Hero() {
                             scrollDependent={false}
                             className='tracking-[-0.07em] leading-[90%]'
                         >
-                            <h1 className='h-[150px] pt-3 text-9xl font-bold text-outline font-Josefin'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
+                            <h1 className='h-[150px] pt-3 text-9xl font-bold text-outline font-fira'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
                         </ScrollBaseAnimation>
                     </div>
                 </div>
