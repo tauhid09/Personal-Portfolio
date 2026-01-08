@@ -75,18 +75,46 @@ function Hero() {
                 />
 
                 {/*Mobile Version*/}
-                <div className='min-[769px]:hidden h-[600px] w-full grid place-content-end text-white mb-6'>
-                    <ScrollBaseAnimation
-                        // delay={1500}
-                        baseVelocity={-1}
-                        scrollDependent={false}
-                        className='tracking-[-0.07em] leading-[90%]'
-                    >
-                        <h1 className='text-8xl'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
-                    </ScrollBaseAnimation>
-                </div>
-                <div className='min-[769px]:hidden border border-solid border-white w-full h-[300px]'>
 
+                <div className='min-[769px]:hidden bg-heroBg z-20 w-full min-h-screen absolute'></div>
+
+                <div className='relative min-[769px]:hidden h-[600px] w-full mb-10'>
+                    <div className='absolute inset-0 grid place-content-end text-white border-white'>
+                        <ScrollBaseAnimation
+                            // delay={1500}
+                            baseVelocity={-1}
+                            scrollDependent={false}
+                            className='tracking-[-0.07em] leading-[90%]'
+                        >
+                            <h1 className='h-[150px] pt-3 text-9xl font-bold font-Josefin'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
+                        </ScrollBaseAnimation>
+                    </div>
+
+                    <div className='absolute min-[769px]:hidden inset-0 grid place-content-end text-white z-20'>
+                        <ScrollBaseAnimation
+                            // delay={1500}
+                            baseVelocity={-1}
+                            scrollDependent={false}
+                            className='tracking-[-0.07em] leading-[90%]'
+                        >
+                            <h1 className='h-[150px] pt-3 text-9xl font-bold text-outline font-Josefin'>Mohammad Tauheed Ansari — Mohammad Tauheed Ansari —</h1>
+                        </ScrollBaseAnimation>
+                    </div>
+                </div>
+
+
+                <div className='min-[769px]:hidden w-full h-[200px] flex flex-col justify-between z-20'>
+                    <div className='h-20 w-full ml-2.5 flex items-center'>
+                        <a href="">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.3666 8.11396L17.3666 15.9497L6.34578 4.92894C5.95526 4.53842 5.32209 4.53842 4.93157 4.92894C4.68749 5.17302 4.59596 5.51188 4.65698 5.82704C4.69359 6.01614 4.78512 6.19671 4.93157 6.34315L15.9524 17.364H8.1166C7.56431 17.364 7.1166 17.8117 7.1166 18.364C7.1166 18.9162 7.56431 19.364 8.1166 19.364H18.3666C18.9189 19.364 19.3666 18.9162 19.3666 18.364V8.11396C19.3666 7.56168 18.9189 7.11397 18.3666 7.11397C17.8143 7.11397 17.3666 7.56168 17.3666 8.11396Z" fill="white" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div className='text-[27px] text-white ml-2.5 mb-1'>
+                        <h2>Frontend Developer</h2>
+                        <h2>Software Developement Engineer</h2>
+                    </div>
                 </div>
 
 
