@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { ArrowBigRight, ArrowRight } from "lucide-react";
 import gsap from 'gsap';
 import HeroProfile from './me.png';
 import TiltedCard from './TiltedCard';
@@ -42,7 +43,7 @@ function Hero() {
                     </div>
                 </div>
 
-                <div className={`mb-25 absolute h-full flex items-center select-none transition-all duration-300 ${isHovered ? 'z-60' : 'z-1'}`}>
+                <div className={`absolute h-full flex items-center select-none transition-all duration-300 ${isHovered ? 'z-60' : 'z-1'}`}>
                     <div className="w-[300px] md:w-[400px] max-[769px]:hidden ">
 
                         <TiltedCard
@@ -76,14 +77,14 @@ function Hero() {
                 />
 
 
-                <div className={`mb-20 max-[769px]:hidden relative div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 ${isHovered ? 'z-0' : 'z-10'}`}>
+                <div className={`max-[769px]:hidden relative div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 ${isHovered ? 'z-0' : 'z-10'}`}>
                     <h1 className="text-4xl h1-hero relative select-none text-outline md:text-7xl lg:text-8xl text-left font-bold flex flex-col font-fira text-hero" >
                         <span className='text-hero' >I'm MOHD</span>
                         <span className="ml-4 md:ml-30 text-[10rem] max-[769px]:text-5xl text-hero">TAUHEED</span>
                         <span className="ml-12 md:ml-130 text-hero" >ANSARI</span>
                     </h1>
                 </div>
-                <div className='mb-20 max-[769px]:hidden absolute div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 hover:z-0'>
+                <div className='max-[769px]:hidden absolute div-hero flex justify-center w-full max-w-5xl p-2 md:p-10 pointer-events-none transition-all duration-300 hover:z-0'>
                     <h1 className="text-4xl h1-hero relative select-none text-white md:text-7xl lg:text-8xl text-left font-bold flex flex-col font-fira text-hero" >
                         <span className='text-hero' >I'm MOHD</span>
                         <span className="ml-4 md:ml-30 text-[10rem] max-[769px]:text-5xl text-hero">TAUHEED</span>
@@ -120,12 +121,44 @@ function Hero() {
                 </div>
 
 
-                <div className='min-[769px]:hidden w-full h-[200px] flex flex-col justify-between z-20'>
-                    
-                </div>
+                {/* <div className='max-[769px]:w-full p-5 w-[500px] h-[150px] flex flex-row max-[769px]:flex-col justify-between items-center z-20  absolute bottom-0'>
+                    <div
+                        className=" group relative w-32 h-11 cursor-pointer overflow-hidden rounded-full border bg-white p-2 text-center font-semibold text-black"
+                    >
+                        <span
+                            className=" inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0"
+                        >
+                            About
+                        </span>
 
+                        <div
+                            className=" absolute top-0 z-10 flex h-full w-full items-center justify-center gap-2 translate-x-12 opacity-0 text-white transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100"
+                        >
+                            <span>About</span>
+                            <ArrowRight />
+                        </div>
 
+                        <div
+                            className=" absolute top-[40%] left-[20%] h-2 w-2 rounded-lg bg-black scale-[1] transition-all duration-300 group-hover:top-[0%] group-hover:left-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-[#263381] dark:group-hover:bg-[#e7cb6e]"
+                        />
+                    </div>
 
+                    <div
+                        className=" group relative w-32 h-11 cursor-pointer overflow-hidden rounded-full border bg-white p-2 text-center font-semibold text-black"
+                    >
+                        <span
+                            className=" inline-block translate-y-0 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0"
+                        >
+                            Our Work
+                        </span>
+
+                        <div
+                            className=" absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center gap-2 rounded-full bg-green-400 text-white translate-y-12 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:rounded-none"
+                        >
+                            <span>Our Work</span>
+                        </div>
+                    </div>
+                </div> */}
             </section>
         </>
     )
