@@ -6,6 +6,7 @@ import Highlight from './Components/Highlights/Highlights';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 import About from './Components/About/About';
+
 import { ReactLenis } from 'lenis/react';
 import './App.css';
 'use client';
@@ -29,7 +30,7 @@ function App() {
       </section>
       <Footer />
     </>
-  
+
   </ReactLenis>;
 }
 

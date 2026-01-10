@@ -51,6 +51,12 @@
 .h1-hero {
   @apply max-[769px]:text-[50px]
 }
+.intro{
+  @apply max-[769px]:relative flex flex-row p-2 absolute right-0 top-30 text-justify justify-end items-center;
+}
+.intro-p{
+  @apply min-[769px]:bg-transparent text-left min-[769px]:text-[13px] min-[769px]:w-[280px];
+}
 
 @layer utilities {
   .text-outline {
