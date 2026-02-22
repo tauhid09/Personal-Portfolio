@@ -1,4 +1,5 @@
 import React, { Suspense, useRef } from "react";
+import tlogo from "../HeroSection/logo.png";
 import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 import { TimelineAnimation } from "@/components/timeline-animation";
 import { useMediaQuery } from "@/components/use-media-query";
@@ -78,17 +79,7 @@ export const HeroDigitalSuccess = () => {
           >
             <nav className="space-y-4 ">
               <div className="flex items-center gap-2 text-white">
-                <svg
-                  className="fill-white w-8 h-8"
-                  width="97"
-                  height="108"
-                  viewBox="0 0 97 108"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M55.5 0C61.0005 0.00109895 64.5005 2.50586 64.5 7.5V17C64.5 24.5059 68.5005 27.5 81 27.5H88C94.0005 27.5059 96.5 29.5059 96.5 37.5V98.5C96.5 106.006 95.0005 107.5 88 107.5H41.5C36.5005 107.5 32 104.506 32 98.5V88C32 84.5 28.5 80 20.5 80H8.5C3 80 0 76.5 0 71.5V6.5C0.00048844 1.50586 2.50049 0.00585937 8.5 0H55.5ZM31 20C28.7909 20 27 21.7909 27 24V74C27 76.2091 28.7909 78 31 78H58C60.2091 78 62 76.2091 62 74V24C62 21.7909 60.2091 20 58 20H31Z" />
-                </svg>
-                <span>UI-Layouts</span>
+                <img className="w-[60px] h-[70]" src={tlogo} alt="logo" />
               </div>
               <a
                 href="#"
@@ -137,16 +128,9 @@ export const HeroDigitalSuccess = () => {
             timelineRef={timelineRef}
             className="flex items-center gap-2"
           >
-            <svg
-              className="fill-white w-8 h-8"
-              width="97"
-              height="108"
-              viewBox="0 0 97 108"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M55.5 0C61.0005 0.00109895 64.5005 2.50586 64.5 7.5V17C64.5 24.5059 68.5005 27.5 81 27.5H88C94.0005 27.5059 96.5 29.5059 96.5 37.5V98.5C96.5 106.006 95.0005 107.5 88 107.5H41.5C36.5005 107.5 32 104.506 32 98.5V88C32 84.5 28.5 80 20.5 80H8.5C3 80 0 76.5 0 71.5V6.5C0.00048844 1.50586 2.50049 0.00585937 8.5 0H55.5ZM31 20C28.7909 20 27 21.7909 27 24V74C27 76.2091 28.7909 78 31 78H58C60.2091 78 62 76.2091 62 74V24C62 21.7909 60.2091 20 58 20H31Z" />
-            </svg>
+            <div className="flex items-center gap-2 text-white">
+              <img className="w-[79px] h-[90]" src={tlogo} alt="logo" />
+            </div>
           </TimelineAnimation>
 
           <TimelineAnimation
@@ -191,8 +175,11 @@ export const HeroDigitalSuccess = () => {
           className="flex flex-col xl:flex-row text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-10 "
         >
           I'm
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-0 xl:inline-block block">
+            Salesforce
+          </span>
           <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
-            Salesforce Developer
+            Developer
           </span>
         </TimelineAnimation>
 
@@ -206,20 +193,34 @@ export const HeroDigitalSuccess = () => {
               className="cursor-pointer relative group overflow-hidden bg-white text-black px-8 py-4 rounded-full font-medium text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)]"
             >
               <img
-                src="https://picsum.photos/seed/ds/50"
+                src="https://img.icons8.com/?size=100&id=5CpFmPIkX7Wz&format=png&color=000000"
                 className="w-6 h-6 rounded-full"
                 alt=""
               />
-              Book a Consultation
+              View My Work
             </TimelineAnimation>
             <TimelineAnimation
               once={true}
               as="button"
               animationNum={6}
               timelineRef={timelineRef}
-              className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full font-medium text-lg"
+              className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full font-medium text-lg text-lg flex items-center gap-3 "
             >
-              More about us
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20 7.82843C20 7.298 19.7893 6.78929 19.4142 6.41421L15.5858 2.58579C15.2107 2.21071 14.702 2 14.1716 2L6 2C4.89543 2 4 2.89543 4 4L4 20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V7.82843ZM15.25 11.25C15.9404 11.25 16.5 10.6904 16.5 10C16.5 9.30965 15.9404 8.75 15.25 8.75H8.75C8.05965 8.75 7.5 9.30965 7.5 10C7.5 10.6904 8.05965 11.25 8.75 11.25H15.25ZM8.75 16.25C8.05965 16.25 7.5 15.6904 7.5 15C7.5 14.3096 8.05965 13.75 8.75 13.75H13.25C13.9404 13.75 14.5 14.3096 14.5 15C14.5 15.6904 13.9404 16.25 13.25 16.25H8.75Z"
+                  fill="white"
+                />
+              </svg>
+              Hire Me
             </TimelineAnimation>
           </div>
           <TimelineAnimation
