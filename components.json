@@ -18,5 +18,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@ui-layouts": "https://ui-layouts.com/r/{name}.json"
+  }
 }

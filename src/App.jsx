@@ -1,6 +1,6 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import Nav from './Components/Navigation Bar/navigation'
-import Hero from './Components/HeroSection/Hero';
+import { HeroDigitalSuccess as Hero } from './Components/HeroSection/hero-digital-success';
 import Loader from './Components/Loader/LoadingOverlay';
 import Highlight from './Components/Highlights/Highlights';
 import Contact from './Components/Contact/Contact';
@@ -14,8 +14,8 @@ import './App.css';
 function App() {
   return <ReactLenis root>
     <>
-      <Loader />
-      <Nav />
+      {/* <Loader /> */}
+      {/* <Nav /> */}
       <section id="home">
         <Hero />
       </section>
