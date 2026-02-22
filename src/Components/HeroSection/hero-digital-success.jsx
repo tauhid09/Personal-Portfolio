@@ -1,19 +1,81 @@
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import tlogo from "../HeroSection/logo.png";
 import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 import { TimelineAnimation } from "@/components/timeline-animation";
 import { useMediaQuery } from "@/components/use-media-query";
 import MotionDrawer from "@/components/motion-drawer";
 
+const WORDS = ["Frontend", "Salesforce"];
+
+const GLITCH_CSS = `
+  @keyframes glitchOut {
+    0%   { opacity:1; transform:translate(0,0) skewX(0deg); clip-path:inset(0 0 0 0); filter:brightness(1) hue-rotate(0deg); }
+    8%   { transform:translate(-5px,1px) skewX(-4deg); clip-path:inset(12% 0 78% 0); filter:brightness(1.6) hue-rotate(25deg); }
+    18%  { transform:translate(5px,-1px) skewX(4deg); clip-path:inset(62% 0 20% 0); filter:brightness(0.7) hue-rotate(-20deg); }
+    28%  { transform:translate(-3px,2px) skewX(-2deg); clip-path:inset(35% 0 48% 0); filter:brightness(1.4) hue-rotate(40deg); }
+    40%  { transform:translate(5px,-2px) skewX(4deg); clip-path:inset(80% 0 6% 0); filter:brightness(1.9) hue-rotate(-35deg); }
+    55%  { transform:translate(-6px,1px) skewX(-5deg); clip-path:inset(46% 0 36% 0); filter:brightness(0.5) hue-rotate(60deg); opacity:0.55; }
+    72%  { opacity:0.25; transform:translate(3px,0); clip-path:inset(22% 0 58% 0); filter:brightness(1.2); }
+    100% { opacity:0; transform:translate(0,0) skewX(0deg); clip-path:inset(0 0 0 0); filter:brightness(1) hue-rotate(0deg); }
+  }
+  @keyframes glitchIn {
+    0%   { opacity:0; transform:translate(0,0) skewX(0deg); clip-path:inset(0 0 0 0); filter:brightness(1) hue-rotate(0deg); }
+    12%  { opacity:0.2; transform:translate(6px,-2px) skewX(5deg); clip-path:inset(70% 0 14% 0); filter:brightness(1.9) hue-rotate(-30deg); }
+    26%  { opacity:0.45; transform:translate(-5px,1px) skewX(-4deg); clip-path:inset(24% 0 60% 0); filter:brightness(1.4) hue-rotate(20deg); }
+    42%  { opacity:0.68; transform:translate(4px,-1px) skewX(3deg); clip-path:inset(54% 0 28% 0); filter:brightness(1.2) hue-rotate(-15deg); }
+    58%  { opacity:0.82; transform:translate(-3px,1px) skewX(-2deg); clip-path:inset(18% 0 66% 0); filter:brightness(1.3) hue-rotate(10deg); }
+    75%  { opacity:0.93; transform:translate(1px,0) skewX(1deg); filter:brightness(1.1) hue-rotate(-5deg); }
+    88%  { opacity:0.98; transform:translate(-1px,0); }
+    100% { opacity:1; transform:translate(0,0) skewX(0deg); clip-path:inset(0 0 0 0); filter:brightness(1) hue-rotate(0deg); }
+  }
+  @keyframes glitchRed {
+    0%   { opacity:0; clip-path:inset(0 0 0 0); transform:translate(0,0); }
+    8%   { opacity:1; transform:translate(-7px,0); clip-path:inset(14% 0 72% 0); }
+    22%  { transform:translate(5px,1px); clip-path:inset(58% 0 18% 0); }
+    38%  { transform:translate(-9px,-1px); clip-path:inset(32% 0 43% 0); }
+    54%  { transform:translate(6px,0); clip-path:inset(76% 0 6% 0); }
+    70%  { opacity:1; transform:translate(-5px,1px); clip-path:inset(42% 0 38% 0); }
+    88%  { opacity:0.3; transform:translate(2px,0); clip-path:inset(10% 0 80% 0); }
+    100% { opacity:0; clip-path:inset(0 0 0 0); transform:translate(0,0); }
+  }
+  @keyframes glitchCyan {
+    0%   { opacity:0; clip-path:inset(0 0 0 0); transform:translate(0,0); }
+    8%   { opacity:1; transform:translate(7px,0); clip-path:inset(72% 0 14% 0); }
+    22%  { transform:translate(-5px,-1px); clip-path:inset(18% 0 58% 0); }
+    38%  { transform:translate(9px,1px); clip-path:inset(43% 0 32% 0); }
+    54%  { transform:translate(-6px,0); clip-path:inset(6% 0 76% 0); }
+    70%  { opacity:1; transform:translate(5px,-1px); clip-path:inset(62% 0 20% 0); }
+    88%  { opacity:0.3; transform:translate(-2px,0); clip-path:inset(80% 0 10% 0); }
+    100% { opacity:0; clip-path:inset(0 0 0 0); transform:translate(0,0); }
+  }
+`;
+
 export const HeroDigitalSuccess = () => {
   const timelineRef = useRef(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const [wordIndex, setWordIndex] = useState(0);
+  const [animState, setAnimState] = useState("idle"); // "idle" | "glitch-out" | "glitch-in"
+
+  useEffect(() => {
+    const GLITCH_DURATION = 550;
+    const interval = setInterval(() => {
+      setAnimState("glitch-out");
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % WORDS.length);
+        setAnimState("glitch-in");
+        setTimeout(() => setAnimState("idle"), GLITCH_DURATION);
+      }, GLITCH_DURATION);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
       ref={timelineRef}
       className="relative min-h-screen bg-black text-white overflow-hidden flex flex-col"
     >
+      <style>{GLITCH_CSS}</style>
       <Suspense>
         <ShaderGradientCanvas
           style={{
@@ -175,8 +237,64 @@ export const HeroDigitalSuccess = () => {
           className="flex flex-col xl:flex-row text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-10 "
         >
           I'm
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-0 xl:inline-block block">
-            Salesforce
+          {/* Glitch word switcher */}
+          <span style={{ position: "relative", display: "inline-block" }}>
+            {/* Red chromatic-aberration ghost */}
+            <span
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                color: "#ff003c",
+                opacity: animState !== "idle" ? 1 : 0,
+                animation:
+                  animState !== "idle"
+                    ? "glitchRed 0.55s ease-in-out forwards"
+                    : "none",
+                willChange: "transform, clip-path",
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+            >
+              {WORDS[wordIndex]}
+            </span>
+            {/* Cyan chromatic-aberration ghost */}
+            <span
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                color: "#00e5ff",
+                opacity: animState !== "idle" ? 1 : 0,
+                animation:
+                  animState !== "idle"
+                    ? "glitchCyan 0.55s ease-in-out forwards"
+                    : "none",
+                willChange: "transform, clip-path",
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+            >
+              {WORDS[wordIndex]}
+            </span>
+            {/* Main gradient text */}
+            <span
+              className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-0 xl:inline-block block"
+              style={{
+                display: "inline-block",
+                animation:
+                  animState === "glitch-out"
+                    ? "glitchOut 0.55s ease-in forwards"
+                    : animState === "glitch-in"
+                      ? "glitchIn 0.55s ease-out forwards"
+                      : "none",
+                willChange: "transform, opacity, clip-path, filter",
+              }}
+            >
+              {WORDS[wordIndex]}
+            </span>
           </span>
           <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
             Developer
